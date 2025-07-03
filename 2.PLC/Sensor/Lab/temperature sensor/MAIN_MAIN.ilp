@@ -1,0 +1,23 @@
+(*2*)
+(* Network 0 *)
+LD    %I0.0
+ANDN    %I0.3
+OR    %Q0.0
+OR    %M0.0
+ANDN    %I0.3
+AND    %I0.1
+ST   %Q0.0
+(* Network 1 *)
+LDN    %I0.3
+AND    %M0.1
+TON   T0, 5000
+__CR_EQ_1
+MOVE    T0, %MW10
+__CR_RESTORE
+ST   %M0.0
+(* Network 2 *)
+LD    %Q0.0
+OR    %M0.1
+ANDN    %M0.0
+AND    %I0.1
+ST   %M0.1
